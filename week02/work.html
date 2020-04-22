@@ -1,0 +1,17 @@
+<script>
+  // 1.  写一个正则表达式 匹配所有 Number 直接量
+  let regNUmber = /[\d]{1,16}|(?:[1-9]+\.[\d]+)/;
+
+  console.log('d23'.search(regNUmber));
+  console.log('asdfs1.23'.search(regNUmber));
+  // 2. 写一个 UTF-8 Encoding 的函数
+  const UTF8Encoding = (str) => {
+        let arr = str.split('');
+        let codes = arr.map((item) => `\\u${item.charCodeAt().toString(16)}`);
+        return codes.join('');
+    }
+  console.log(UTF8Encoding('前端'));
+  // 3. 写一个正则表达式，匹配所有的字符串直接量，单引号和双引号
+  let regStr = /(['"])(?:(?!\1).)*?\1/g;
+  console.log('111\'JOJO\''.search(regStr));
+</script>
