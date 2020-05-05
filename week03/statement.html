@@ -1,0 +1,110 @@
+<script>
+for(let p of [1, 2, 3]) {
+  console.log(p)
+}
+
+for( let a of Object.keys({a: 1, b:2})) {
+  console.log(a);
+}
+
+for(let a in {aa: 1, bb:2}) {
+  console.log(a);
+}
+
+function *g() {
+  yield 0;
+  yield 1;
+  yield 4;
+}
+
+for(let p2 of g()) {
+  console.log(p2);
+}
+
+function Class() {
+  public:this.a = 1;
+    this.b = 2;
+    private:var x = 3;
+    var y = 4;
+}
+
+try {
+  var a = 1;
+  throw 2;
+} catch(e) {
+  console.log(e);
+}
+
+class cla {
+
+}
+
+var o = class {}
+
+function* foo () {
+  yield 1;
+  yield 2;
+
+  var i = 3;
+  while(true)
+    yield i ++;
+}
+
+let on = foo();
+on.next();
+
+function sleep(d){
+    return new Promise(resolve => setTimeout(resolve, d));
+}
+
+async function* foo() {
+  var i = 0;
+  while(true) {
+    console.log(i++);
+    yield i ++;
+    await sleep(1000);
+  }
+}
+
+void async function() {
+    var g= foo();
+console.log(await g.next());
+console.log(await g.next());
+console.log(await g.next());
+}();
+
+void async function() {
+    var g= foo();
+    for await (let e of g) {
+      console.log(e);    
+    }
+}();
+
+var x = 0;
+function gg() {
+  var o = {x: 1};
+  o.x =3;
+  x =2;
+
+  console.log(x);
+  return;
+  var x = 3;
+}
+gg();
+console.log(x);
+
+function foo () {
+  foo2();
+  return;
+  var i =1;
+  function foo2() {
+    console.log(2);
+  }
+}
+foo();
+
+var cls1 = 0;
+function foo () {
+  let cls1;
+}
+</script>
