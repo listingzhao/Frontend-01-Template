@@ -30,14 +30,24 @@ function convertNumberToString(number, x) {
   var integer = Math.floor(number)
   var fraction = number - integer;
 
-  var string = '';
+  var string = !integer ? '0' : '';;
   while(integer > 0) {
     string = String(integer % x) + string;
     integer = Math.floor(integer / x);
   }
 
+  if(fraction) {
+    string += '.';
+    while(fraction) {
+      fraction *= x;
+      string += `${Math.floor(fraction)}`;
+      fraction -= Math.floor(fraction);
+    }
+  }
+
   return string;
 }
 
-console.log(convertNumberToString(100, 10));
+console.log(convertNumberToString(0, 10));
+console.log(convertNumberToString(123.456, 10));
 </script>
