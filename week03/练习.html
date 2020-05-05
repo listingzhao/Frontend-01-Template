@@ -1,7 +1,15 @@
 <script>
 function convertStringToNumber(string, x) {
+
+  if (typeof string !== "string" && typeof string !== "number") return NaN;
+
+  if (typeof x !=="number" || x < 2 || x >36){
+      return NaN;
+  }
+
   if(arguments.length < 2)
   x = 10;
+
   var chars = string.split('');
   var number = 0;
   var i = 0;
@@ -24,6 +32,8 @@ function convertStringToNumber(string, x) {
 
   return number + fraction;
 }
+
+console.log(convertStringToNumber(null));
 console.log(convertStringToNumber("10.0123"));
 
 function convertNumberToString(number, x) {
