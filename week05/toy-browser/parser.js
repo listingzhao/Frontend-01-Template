@@ -1,5 +1,7 @@
 const EOF = Symbol('EOF') // EOF: END of File
 
+const { addCSSRules, computeCSS } = require('./css.js')
+
 let stack = [{ type: 'document', children: [] }]
 
 let currentTextNode = null
@@ -27,6 +29,8 @@ function emit(token) {
       }
     }
 
+    computeCSS(stack, element)
+
     top.children.push(element)
     element.parent = top
 
@@ -39,6 +43,10 @@ function emit(token) {
     if (top.tagName != token.tagName) {
       throw new Error("Tag start end doesn't match!")
     } else {
+      // style 标签 添加CSS规则
+      if (top.tagName == 'style') {
+        addCSSRules(top.children[0].content)
+      }
       stack.pop()
     }
     currentTextNode = null
