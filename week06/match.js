@@ -198,3 +198,5 @@ function foundB3(c) {
 }
 
 console.log(match('abababx'))
+
+// 未知pattern 
