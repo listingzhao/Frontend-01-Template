@@ -17,11 +17,25 @@ const server = http.createServer((req, res) => {
       width:30px;
       background-color: #ff1111;
   }
+  .b {
+    width:30px;
+    background-color: #ff1111;
+  }
+  body > div {
+    width:30px;
+    background-color: red;
+  }
+  #aid.a[title=aa] {
+    width:30px;
+    background-color: red;
+  }
       </style>
   </head>
   <body>
       <div>
           <img id="myid"/>
+          <img class="b a"/>
+          <img id="aid" class="a" title="aa"/>
           <img />
       </div>
   </body>
