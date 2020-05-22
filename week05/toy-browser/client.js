@@ -224,6 +224,8 @@ void (async function () {
     let res = await request.send();
     console.log(res);
     let dom = parser.parseHTML(res.body);
+    console.log(JSON.stringify(dom, null, '  '));
+    console.log('');
 })();
 
 // const client = net.createConnection({ host: '127.0.0.1', port: 8088 }, () => {

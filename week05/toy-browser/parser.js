@@ -32,7 +32,7 @@ function emit(token) {
         computeCSS(stack, element);
 
         top.children.push(element);
-        element.parent = top;
+        // element.parent = JSON.parse(JSON.stringify(top));
 
         if (!token.isSelfClosing) {
             stack.push(element);
@@ -209,9 +209,9 @@ function afterQuotedAttributeValue(c) {
 
 function afterAttributeName(c) {
     if (c == '/') {
-        currentToken.isSelfClosing = true;
-        // currentToken[currentAttribute.name] = currentAttribute.value;
         return selfClosingStartTag;
+    } else if (c == '=') {
+        return beforeAttributeValue;
     } else if (c == '>') {
         currentToken[currentAttribute.name] = currentAttribute.value;
         emit(currentToken);
@@ -254,11 +254,11 @@ function selfClosingStartTag(c) {
 }
 
 module.exports.parseHTML = function parseHTML(html) {
-    console.log(html);
+    // console.log(html);
     let state = data;
     for (let c of html) {
         state = state(c);
     }
     state = state(EOF);
-    console.log(stack[0]);
+    return stack[0];
 };
