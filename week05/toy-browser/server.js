@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
     width:30px;
     background-color: red;
   }
-  #aid.a[title=aa] {
+  #aid.a.b[title=tl] {
     width:30px;
     background-color: red;
   }
@@ -35,7 +35,7 @@ const server = http.createServer((req, res) => {
       <div>
           <img id="myid"/>
           <img class="b a"/>
-          <img id="aid" class="a" title="aa"/>
+          <div id="aid" class="a b" title="tl"></div>
           <img />
       </div>
   </body>
