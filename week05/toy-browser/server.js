@@ -29,6 +29,17 @@ const server = http.createServer((req, res) => {
     width:30px;
     background-color: red;
   }
+  #container {
+    width: 500px;
+    height: 300px;
+    display: flex;
+  }
+  #container #flexId {
+    width: 200px;
+  }
+  #container .c1 {
+    flex: 1;
+  }
       </style>
   </head>
   <body>
@@ -37,6 +48,10 @@ const server = http.createServer((req, res) => {
           <img class="b a"/>
           <div id="aid" class="a b" title="tl"></div>
           <img />
+          <div id="container">
+            <div id="flexId" />
+            <div class="c1" />
+          </div>
       </div>
   </body>
   </html>`);
