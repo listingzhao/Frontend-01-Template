@@ -1,5 +1,7 @@
 const net = require('net');
+const images = require('images');
 const parser = require('./parser.js');
+// const render = require('./render.js');
 
 class Request {
     // method, url = host + port + path
@@ -226,6 +228,12 @@ void (async function () {
     let dom = parser.parseHTML(res.body);
     console.log(JSON.stringify(dom, null, '  '));
     console.log('');
+
+    let viewport = images(800, 600);
+
+    render(viewport, dom);
+
+    viewport.save('viewport.jpg');
 })();
 
 // const client = net.createConnection({ host: '127.0.0.1', port: 8088 }, () => {
