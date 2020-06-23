@@ -1,0 +1,49 @@
+<div>
+  <div id="id" class="class" attr="ccc"></div>
+</div>
+
+<script>
+  function match(selector, element) {
+    const selectors = selector.split(' ').reverse()
+    if (selectors.length === 0) return false
+    // 先检查当前元素是否匹配
+    if (matchElement(selectors[0], element)) {
+      let ele = element.parentNode
+      selectors.shift()
+      while (selectors.length && ele) {
+        // 遍历父元素判断是否匹配
+        if (matchElement(selectors[0], ele)) {
+          selectors.shift()
+        }
+        ele = ele.parentNode
+      }
+      // selectors为空则匹配成功
+      return !selectors.length
+    }
+    return false
+  }
+
+  const re = /^([a-z]+)?(#[a-z]+)?(\.[a-z]+)?(\[[a-z]+=[a-z]+\])?$/
+  function matchElement(selector, element) {
+    const m = re.exec(selector)
+    if (!m) return false
+    const [type, id, cls, attr] = m
+    let matched = true
+    if (type) {
+      matched = type.toUpperCase() === element.tagName
+    }
+    if (id) {
+      matched = id.slice(1) === element.id
+    }
+    if (cls) {
+      matched = cls.slice(1) === element.className
+    }
+    if (attr) {
+      const [, key, value] = /^\[([a-z]+)=([a-z]+)\]$/.exec(attr)
+      matched = element.getAttribute(key) === value
+    }
+    return matched
+  }
+
+  console.log(match('div #id.class[attr=ccc]', document.getElementById('id')))
+</script>
