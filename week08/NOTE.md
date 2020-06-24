@@ -4,25 +4,25 @@
 
 简单选择器
 
-- `*`
-- div svgla
-- .cls
-- [attr=value]
-- :hober
-- ::before
+-   `*`
+-   div svgla
+-   .cls
+-   [attr=value]
+-   :hober
+-   ::before
 
 复合选择器
 
-- <简单选择器> <简单选择器> <简单选择器>
-- `*` 或者 div 必须写在最前面
+-   <简单选择器> <简单选择器> <简单选择器>
+-   `*` 或者 div 必须写在最前面
 
 复杂选择器
 
-- <复合选择器> <sp> <复合选择器>
-- <复合选择器> ">" <复合选择器>
-- <复合选择器> "~" <复合选择器>
-- <复合选择器> "+" <复合选择器>
-- <复合选择器> "||" <复合选择器>
+-   <复合选择器> <sp> <复合选择器>
+-   <复合选择器> ">" <复合选择器>
+-   <复合选择器> "~" <复合选择器>
+-   <复合选择器> "+" <复合选择器>
+-   <复合选择器> "||" <复合选择器>
 
 ### 选择器的优先级
 
@@ -39,56 +39,85 @@
 
 链接/行为
 
-- :any-link
-- :link :visited
-- :hover
-- :active
-- :focus
-- :target
+-   :any-link
+-   :link :visited
+-   :hover
+-   :active
+-   :focus
+-   :target
 
 树结构
 
-- :empty
-- :nth-child()
-- :nth-last-child()
-- :first-child :last-child :only-child
+-   :empty
+-   :nth-child()
+-   :nth-last-child()
+-   :first-child :last-child :only-child
 
 逻辑型
 
-- :not 伪类
-- :where :has
+-   :not 伪类
+-   :where :has
 
 ### 伪元素
 
-- ::before
-- ::after
-- ::firstLine
-- ::first-letter
+-   ::before
+-   ::after
+-   ::firstLine
+-   ::first-letter
 
 可用属性
 first-line
 
-- font 系列
-- color 系列
-- background 系列
-- word-spacing
-- letter-spacing
-- text-decoration
-- text-transform
-- line-height
+-   font 系列
+-   color 系列
+-   background 系列
+-   word-spacing
+-   letter-spacing
+-   text-decoration
+-   text-transform
+-   line-height
 
 first-letter
 
-- font 系列
-- color 系列
-- background 系列
-- word-spacing
-- letter-spacing
-- text-decoration
-- text-transform
-- line-height
-- float
-- vertical-align
-- 盒模型系列： margin，padding，border
+-   font 系列
+-   color 系列
+-   background 系列
+-   word-spacing
+-   letter-spacing
+-   text-decoration
+-   text-transform
+-   line-height
+-   float
+-   vertical-align
+-   盒模型系列： margin，padding，border
 
 ### 排版部分
+
+#### 标签，元素，盒
+
+#### 盒模型
+
+包含四个部分
+
+-   margin
+-   padding
+-   border
+-   content
+
+box-sizing 元素宽高计算
+content-box
+border-box
+
+### 正常流
+
+正常流排版
+
+-   收集盒进行
+-   计算盒在行中的位置
+-   计算行的排布
+
+正常流的行模型
+
+1. vertical-align baseline 是拿自己的 baseline 去对其行的 baseline。
+2. vertical-align top middle bottom 拿自己的 顶部 中线 底部 去对其行的顶部。
+3. vertical-align text-top text-bottom 拿自己顶部底部去对其行的 text-top 和 text-bottom。
