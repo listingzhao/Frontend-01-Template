@@ -29,3 +29,49 @@ box-shadow
 box-radius
 
 -   data uri + svg
+
+### HTML 语言和扩展
+
+### HTML 语法
+
+合法元素
+
+-   Element: <tagname> ... </tagname>
+-   Text: text
+-   Comment: <!-- comments -->
+-   DocumentType: <!Doctype html>
+-   ProcessingInstruction: <?a 1?>
+-   CDATA: <![CDATA[]]>
+
+字符引用
+
+-   &#161;
+-   &amp;
+-   &lt;
+-   &quot;
+
+### DOM 操作
+
+导航类操作
+
+-   parentNode
+-   childNodes
+-   firstChild
+-   lastChild
+-   nextSibling
+-   previousSibling
+
+修改操作
+
+-   appendChild
+-   insertBefore
+-   removeChild
+-   replaceChild
+
+高级操作
+
+-   compareDocumentPosition 是一个用于比较两个节点中关系的函数
+-   contains 检查一个节点是否包含另一个节点的函数
+-   isEqualNode 检查两个节点是否完全相同
+-   isSameNode 检查两个节点是否是同一个节点 js 中可以用 ===
+-   cloneNode 复制一个节点 传入参数 true ，则返回元素做深拷贝
