@@ -7,6 +7,8 @@
   style="width: 100px; height: 100px; background-color: rgb(100, 100, 255)"
 ></div>
 
+<div id="text">Hello {{name}}!</div>
+
 <script>
   let handlers = new Map()
   let reactivities = new Map()
@@ -107,5 +109,17 @@
     document.getElementById(
       'color'
     ).style.backgroundColor = `rgb(${p.r},${p.g},${p.b})`
+  })
+
+  let range = document.createRange()
+  range.setStart(document.getElementById('text').childNodes[0], 6)
+  range.setEnd(document.getElementById('text').childNodes[0], 14)
+  let data = reactive({
+    text: 'word'
+  })
+
+  effect(() => {
+    range.extractContents()
+    range.insertNode(document.createTextNode(data.text))
   })
 </script>
