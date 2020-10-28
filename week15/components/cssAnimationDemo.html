@@ -1,0 +1,20 @@
+<div id="el" style="transition: ease 3s"></div>
+
+<style>
+  #el {
+    width: 100px;
+    height: 100px;
+  }
+</style>
+
+<script>
+  var el = document.getElementById('el')
+  function start() {
+    el.style.transform = 'translate(300px, 300px)'
+  }
+
+  function stop() {
+    el.style.transform = getComputedStyle(el).transform
+    el.style.transition = 'none;'
+  }
+</script>

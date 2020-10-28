@@ -1,0 +1,22 @@
+<h2>x</h2>
+<div id="x">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div>
+<h2>b</h2>
+<div id="b"></div>
+
+<script>
+  var x = document.getElementById('x')
+  var b = document.getElementById('b')
+  // error
+  // for (let i = 0; i < x.children.length; i++) {
+  //   b.appendChild(x.children[i])
+  // }
+  // good
+  while (x.children.length) {
+    b.appendChild(x.children[0])
+  }
+</script>

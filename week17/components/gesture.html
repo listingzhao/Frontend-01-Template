@@ -1,0 +1,31 @@
+<body>
+  <div
+    id="my"
+    style="transform: translate(0px, 0px); width: 100px ; height: 100px; background: lightgreen"
+  ></div>
+</body>
+<script type="module">
+  import { enableGesture } from './gesture/index.js'
+
+  window.addEventListener('contextmenu', e => e.preventDefault())
+  document.addEventListener('selectstart', e => e.preventDefault())
+  document.addEventListener('touchmove', e => e.preventDefault())
+  enableGesture(document.body)
+
+  let x = 0,
+    y = 0
+  let my = document.getElementById('my')
+  document.body.addEventListener('pan', event => {
+    const { clientX, clientY, startX, startY } = event.detail
+    console.log(x + clientX - startX)
+    console.log(y + clientY - startY)
+    my.style.transform = `translate(${x + clientX - startX}px,${y +
+      clientY -
+      startY}px )`
+  })
+  document.body.addEventListener('panend', event => {
+    const { clientX, clientY, startX, startY } = event.detail
+    x = x + clientX - startX
+    y = y + clientY - startY
+  })
+</script>
