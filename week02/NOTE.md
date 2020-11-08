@@ -41,3 +41,16 @@ Boolean Number String Undefined Null Symbol
 #### unicode
 
 #### Atom
+
+### Javascript 单线程模型，原因
+
+JavaScript 只在一个线程上运行。也就是说，JavaScript 同时只能执行一个任务，其他任务都必须在后面排队等待。
+
+### 进程和线程的特点
+
+1. 进程中摸一个线程崩溃都会导致整个进程崩溃
+2. 进程之间是相互隔离的
+3. 线程共享进程中的数据
+4. 进程关闭之后操作系统会回收进程所占用的内存
+
+### Javascript Event Loop 机制
